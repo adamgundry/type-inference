@@ -1,0 +1,57 @@
+Name:                type-inference
+Version:             0.1.0
+Synopsis:            Unification and type inference algorithms
+Description:         
+    This package contains literate Haskell implementations of three
+    unification algorithms (for the free theory, abelian groups and
+    higher-order pattern unification) and two type inference algorithms
+    (for the Hindley-Milner type system and Kennedy-style units of
+    measure).  It accompanies the Ph.D. thesis "Type Inference, Haskell
+    and Dependent Types" by Adam Gundry.
+
+Homepage:            https://github.com/adamgundry/type-inference/
+License:             BSD3
+License-file:        LICENSE
+Author:              Adam Gundry <adam.gundry@strath.ac.uk>
+Maintainer:          Adam Gundry <adam.gundry@strath.ac.uk>
+Copyright:           Copyright (c) 2013 Adam Gundry
+Category:            Language
+Build-type:          Simple
+
+Cabal-version:       >=1.8
+
+Executable type-inference
+  hs-source-dirs:    src
+  Main-is:           Main.lhs
+  Build-depends:     base == 4.*,
+                          RepLib == 0.5.*,
+                          unbound == 0.4.*,
+                          signed-multiset == 0.3.*,
+                          containers >= 0.3 && < 0.6,
+                          mtl == 2.*,
+                          pretty == 1.1.*,
+                          she == 0.6.*
+                         
+  Other-modules:     Common.BwdFwd
+                        Common.Names
+                        Common.PrettyPrint
+                        Milner.Infer
+                        Milner.Test
+                        Milner.Type
+                        Milner.Unify
+                        Milner.Zipper
+                        PatternUnify.Check
+                        PatternUnify.Context
+                        PatternUnify.Test
+                        PatternUnify.Tm
+                        PatternUnify.Unify
+                        Units.Group
+                        Units.GroupUnify
+                        Units.Infer
+                        Units.Test
+                        Units.Type
+                        Units.Unify
+  
+source-repository head
+  type:     git
+  location: git://github.com/adamgundry/type-inference.git
