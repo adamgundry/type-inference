@@ -464,7 +464,7 @@ inhabitants of the new types by projecting the original variable.
 >                  Contextual (Maybe  (Nom, Type, Nom, Type, Tm, (Tm, Tm)))
 > splitSig _Phi x (Sig _S _T)  = do  y  <- fresh (s2n "y")
 >                                    z  <- fresh (s2n "z")
->                                    return $ Just  (y, _Pis _Phi _S, z, _Pis _Phi (inst _T (var y)),
+>                                    return $ Just  (y, _Pis _Phi _S, z, _Pis _Phi (inst _T (var y $*$ _Phi)),
 >                                                   lams' _Phi (PAIR (var y $*$ _Phi) (var z $*$ _Phi)),
 >                                                   (lams' _Phi (var x $*$ _Phi %% Hd), 
 >                                                        lams' _Phi (var x $*$ _Phi %% Tl)))

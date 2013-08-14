@@ -614,6 +614,13 @@ given metacontext.
 >             : [])
 >           )
 
+>           -- test 59: highlights splitSig bug (courtesy of Nathan Collins)
+>         , let _P = _SIG "b2" BOOL (if'' SET (vv "b2") BOOL BOOL)
+>               _T = NAT --> _P
+>               _F = _T --> NAT
+>           in
+>           (gal "F1" _F : gal "F2" _F : eq "p" _F (mv "F1") _F (mv "F2") : [])
+
 >         ]
 
 
