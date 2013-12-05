@@ -36,11 +36,15 @@ substitution for first-order datatypes containing terms.  I use a
 single constructor for all the canonical forms (that do not involve
 binding) so as to factor out common patterns in the typechecker.
 
+%subst dummy = " "
+
 > data Tm where
 >     L        :: Bind Nom Tm -> Tm
 >     N        :: Head -> Bwd Elim -> Tm
 >     C        :: Can Tm -> Tm
 >     Pi, Sig  :: Type -> Bind Nom Type -> Tm
+
+%subst dummy = "\cdot"
 
 > type Nom    = Name Tm
 > data Can t  = Set | Type | Pair t t | Bool | Tt | Ff | Nat | Ze | Su t
